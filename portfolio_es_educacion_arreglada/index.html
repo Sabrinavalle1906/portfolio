@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sabrina Valle — IA & Operaciones de Negocio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f0e0c;--bg2:#161410;--border:#2e2a24;--text:#e8e0d4;--muted:#8a8070;
+  --soft:#c8bfb2;--accent:#c4815a;--accent2:#e8b48a;--tag-bg:#251f18;--tag-txt:#c4815a;
+}
+*{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+.container{max-width:1180px;margin:0 auto;padding:0 48px}
+section{padding:76px 0;border-top:1px solid var(--border)}
+a{color:var(--accent);text-decoration:none} a:hover{color:var(--accent2)}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:400}
+h1{font-size:clamp(3.2rem,7vw,5.8rem);line-height:.92;letter-spacing:-1px}
+h1 em{color:var(--accent2);font-style:italic}
+h2{font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:38px}
+p{color:var(--soft);margin-bottom:1em}
+nav{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);background:rgba(15,14,12,.88);backdrop-filter:blur(14px);padding:18px 0}
+nav .container{display:flex;justify-content:space-between;align-items:center;gap:24px}
+.nav-name{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--muted);letter-spacing:.12em;text-transform:lowercase}
+.nav-links{display:flex;gap:24px;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);letter-spacing:.07em;text-transform:lowercase}
+.nav-links a:hover{color:var(--accent)}
+#hero{padding:110px 0 92px;border-top:none}
+.hero-inner{display:grid;grid-template-columns:1fr 180px;gap:70px;align-items:start}
+.hero-label{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--accent);letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px;display:block}
+.hero-subtitle{font-size:1.05rem;color:var(--muted);margin-top:22px;max-width:850px}
+.hero-statement{margin-top:26px;max-width:720px;color:#d0c3b2}
+.hero-icons{display:flex;gap:18px;margin-top:34px;flex-wrap:wrap}
+.hero-icons a{font-family:'DM Mono',monospace;font-size:.76rem;color:var(--muted);border:1px solid var(--border);padding:8px 15px;border-radius:999px;letter-spacing:.05em}
+.hero-icons a:hover{border-color:var(--accent);color:var(--accent)}
+.hero-photo{width:170px;height:170px;border-radius:50%;overflow:hidden;border:1px solid var(--border);background:#1a1712;box-shadow:0 24px 70px rgba(0,0,0,.25)}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.about-text{max-width:1040px}
+.about-text p{font-size:1.04rem;line-height:1.85;margin-bottom:1.45em}
+.skills-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.skill-group h3{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.skill-group ul{list-style:none}
+.skill-group li{font-family:'DM Mono',monospace;font-size:.76rem;color:#a09080;padding:3px 0;border-bottom:1px solid #1e1b17}
+.item{display:grid;grid-template-columns:56px 1fr 155px;gap:20px;padding:28px 0;border-bottom:1px solid var(--border)}
+.item:last-child{border-bottom:none}
+.badge{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);padding-top:5px;text-align:right}
+.item h3{font-size:1.08rem;margin-bottom:5px;color:var(--text)}
+.meta{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.05em;margin-bottom:8px}
+.desc{font-size:.9rem;color:#9e9080;line-height:1.7;margin-bottom:0}
+.education-grid{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:80px;
+align-items:start;
+}
+.lang-grid{display:grid;gap:13px}
+.lang-row{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid var(--border)}
+.lang-name{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase}
+.lang-level{font-size:.88rem;color:#9e9080;text-align:right}
+.project{display:grid;grid-template-columns:105px 1fr;gap:26px;padding:32px 0;border-bottom:1px solid var(--border)}
+.project:last-child{border-bottom:none}
+.project h3{font-size:1.18rem;margin-bottom:7px}
+.project-context{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.05em;margin-bottom:10px}
+.project p{font-size:.92rem;color:#a99b8c;max-width:900px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.tag{font-family:'DM Mono',monospace;font-size:.66rem;background:var(--tag-bg);color:var(--tag-txt);padding:3px 9px;border-radius:999px;letter-spacing:.04em;border:1px solid rgba(196,129,90,.14)}
+
+/* Corrección específica para Educación: evita que los títulos se corten palabra por palabra */
+.education-grid .item{
+  grid-template-columns:minmax(0,1fr) 120px;
+  gap:32px;
+}
+.education-grid .item > div:first-child{
+  min-width:0;
+}
+.education-grid .item h3{
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:normal;
+  word-break:normal;
+  line-height:1.35;
+}
+.education-grid .item .meta{
+  white-space:normal;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+@media(max-width:850px){
+  .education-grid .item{
+    grid-template-columns:1fr;
+  }
+}
+
+footer{padding:44px 0;border-top:1px solid var(--border);font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media(max-width:850px){
+  .container{padding:0 28px}.hero-inner,.education-grid{grid-template-columns:1fr}.hero-photo{order:-1;width:132px;height:132px}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .item,.project{grid-template-columns:1fr}
+  .badge{text-align:left}
+  nav .container{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:560px){.skills-grid{grid-template-columns:1fr}h1{font-size:4rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="container">
+    <span class="nav-name">sabrina valle</span>
+    <div class="nav-links">
+      <a href="#sobre-mi">sobre mí</a>
+      <a href="#habilidades">habilidades</a>
+      <a href="#experiencia">experiencia</a>
+      <a href="#educacion">educación</a>
+      <a href="#investigacion">investigación</a>
+    </div>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="container hero-inner">
+    <div>
+      <span class="hero-label">IA · Operaciones de Negocio</span>
+      <h1>Sabrina<br><em>Valle</em></h1>
+      <p class="hero-subtitle">
+        Máster en Ciencias de la Computación con Inteligencia Artificial · Licenciada en Dirección y Administración Internacional de Empresas
+      </p>
+      <p class="hero-statement">
+        Formación en operaciones de negocio, expandiéndome hacia la inteligencia artificial, la automatización y las soluciones basadas en datos.
+      </p>
+      <div class="hero-icons">
+        <a href="mailto:sabrinaomm@icloud.com">sabrinaomm@icloud.com</a>
+        <a href="https://www.linkedin.com/in/sabrina-silva-valle-384911250/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="Photoroom_20240829_224925.jpeg" alt="Sabrina Valle">
+    </div>
+  </div>
+</section>
+
+<section id="sobre-mi">
+  <div class="container">
+    <h2>Sobre mí</h2>
+    <div class="about-text">
+      <p>Graduada en Gestión Internacional de Empresas y en Ciencias de la Computación con Inteligencia Artificial. Trayectoria profesional en administración de empresas y operaciones, con experiencia internacional en reporting financiero, administración de RRHH, gestión de datos y apoyo organizacional en Londres, Ibiza, Barcelona y Buenos Aires.</p>
+      <p>Especialización académica en análisis de datos, aprendizaje automático y sistemas de inteligencia artificial, con investigación en IA explicable, detección de fraude, aprendizaje profundo y aprendizaje por refuerzo. Disertación centrada en el impacto de las técnicas de anonimización de datos en la detección de fraude basada en ML en transacciones financieras tipo blockchain.</p>
+      <p>Ciudadana británica y española.</p>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="container">
+    <h2>Stack & habilidades</h2>
+    <div class="skills-grid">
+      <div class="skill-group"><h3>ML / IA</h3><ul><li>Scikit-learn</li><li>TensorFlow · Keras</li><li>CNN · GANs</li><li>SHAP · XAI</li><li>Q-Learning / RL</li></ul></div>
+      <div class="skill-group"><h3>Lenguajes</h3><ul><li>Python</li><li>SQL</li><li>C# / Unity</li><li>Bash</li></ul></div>
+      <div class="skill-group"><h3>Datos & visualización</h3><ul><li>Pandas · NumPy</li><li>Matplotlib</li><li>Excel avanzado</li><li>Análisis exploratorio</li></ul></div>
+      <div class="skill-group"><h3>Automatización</h3><ul><li>Zapier · Make.com</li><li>Airtable</li><li>Flujos LLM</li><li>API ChatGPT</li></ul></div>
+      <div class="skill-group"><h3>Cloud & dev</h3><ul><li>AWS conceptos</li><li>Jupyter · Anaconda</li><li>Google Colab</li><li>Git</li></ul></div>
+      <div class="skill-group"><h3>Dominios</h3><ul><li>IA financiera</li><li>Ética / XAI</li><li>NLP / IA de voz</li><li>Operaciones de negocio</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="experiencia">
+  <div class="container">
+    <h2>Experiencia</h2>
+    <article class="item"><div class="badge">SH</div><div><h3>Front of House & Experiencia de Socios</h3><div class="meta">Soho House & Co · Londres</div><p class="desc">Apoyo a operaciones mediante procesos estructurados e informes. Seguimiento de datos de ventas y tendencias en horas punta para mejorar la eficiencia del servicio.</p></div><div class="badge">Jul 2023 – Jun 2026</div></article>
+    <article class="item"><div class="badge">GG</div><div><h3>Asistente de Dirección</h3><div class="meta">Gaucho Group · Londres</div><p class="desc">Elaboración de informes financieros y operativos con precisión y entrega puntual. Análisis de datos de conciliación y apoyo en auditorías mediante documentación estructurada.</p></div><div class="badge">Oct 2024 – Nov 2025</div></article>
+    <article class="item"><div class="badge">NI</div><div><h3>Administrativa de RRHH</h3><div class="meta">Novikov International · Londres</div><p class="desc">Mantenimiento de datos de empleados y nóminas en sistemas de RRHH. Gestión de seguimiento de contrataciones y elaboración de informes de apoyo.</p></div><div class="badge">2022 – 2023</div></article>
+    <article class="item"><div class="badge">LNI</div><div><h3>Asistente Personal</h3><div class="meta">Las Noches Ibiza · Ibiza, España</div><p class="desc">Gestión de agenda ejecutiva, logística y coordinación operativa. Coordinación de proveedores, suministros y atención a la calidad del servicio.</p></div><div class="badge">2014 – 2019</div></article>
+    <article class="item"><div class="badge">FdS</div><div><h3>Administradora</h3><div class="meta">Flor de Sal Boutique · Barcelona, España</div><p class="desc">Gestión de inventario y datos financieros para apoyar operaciones diarias. Mejora de procesos de stock y mantenimiento de registros precisos.</p></div><div class="badge">Anteriormente</div></article>
+    <article class="item"><div class="badge">AMEX</div><div><h3>Analista de Cuentas por Cobrar</h3><div class="meta">American Express</div><p class="desc">Análisis de datos financieros para monitorizar cuentas vencidas y apoyar estrategias de seguimiento basadas en datos.</p></div><div class="badge">Ene 2006 – Jul 2008</div></article>
+  </div>
+</section>
+
+<section id="educacion">
+  <div class="container">
+    <h2>Educación</h2>
+    <div class="education-grid">
+      <div>
+        <article class="item"><div><h3>MSc Ciencias de la Computación con Inteligencia Artificial</h3><div class="meta">University of Wolverhampton · Campus de Londres</div></div><div class="badge">2025 – 2026</div></article>
+        <article class="item"><div><h3>BSc Gestión Internacional de Empresas</h3><div class="meta">Anglia Ruskin University · Londres</div></div><div class="badge">2021 – 2024</div></article>
+        <article class="item"><div><h3>Curso Profesional de Profesores de Español como Lengua Extranjera</h3><div class="meta">Formación Avanzada Europea · Málaga · 200 horas</div></div><div class="badge">2024</div></article>
+        <article class="item"><div><h3>Gestión Hotelera</h3><div class="meta">Universitas</div></div><div class="badge">Anteriormente</div></article>
+      </div>
+      <div>
+        <h2>Idiomas</h2>
+        <div class="lang-grid">
+          <div class="lang-row"><span class="lang-name">Español</span><span class="lang-level">Nativo · Profesora ELE certificada</span></div>
+          <div class="lang-row"><span class="lang-name">Inglés</span><span class="lang-level">B2 — C1 en curso</span></div>
+          <div class="lang-row"><span class="lang-name">Catalán</span><span class="lang-level">Intermedio</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="investigacion">
+  <div class="container">
+    <h2>Investigación & proyectos</h2>
+    <article class="project"><div class="badge">2026</div><div><h3>Anonimización de Datos vs Detección de Fraude con ML en Transacciones Blockchain</h3><div class="project-context">Disertación · MSc CS con IA · University of Wolverhampton</div><p>Investiga cómo las técnicas de anonimización de datos impactan el rendimiento de modelos de detección de fraude con ML sobre datos de transacciones financieras tipo blockchain.</p><div class="tags"><span class="tag">Blockchain</span><span class="tag">Detección de fraude</span><span class="tag">Privacidad</span><span class="tag">Python</span></div></div></article>
+    <article class="project"><div class="badge">2025</div><div><h3>IA Explicable en Riesgo Crediticio: SHAP vs Explicaciones Contrafactuales</h3><div class="project-context">IA Responsable</div><p>Estudio comparativo de métodos de explicabilidad aplicados a modelos de scoring crediticio, alineado con transparencia, equidad y marcos regulatorios.</p><div class="tags"><span class="tag">SHAP</span><span class="tag">XGBoost</span><span class="tag">DiCE</span><span class="tag">RGPD</span></div></div></article>
+    <article class="project"><div class="badge">2025</div><div><h3>Clasificación de Imágenes de Moda con CNN y GANs</h3><div class="project-context">Deep Machine Learning</div><p>Diseño y entrenamiento de una CNN sobre Fashion MNIST, junto con investigación de GANs para generación de imágenes sintéticas.</p><div class="tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">CNN</span><span class="tag">GANs</span></div></div></article>
+    <article class="project"><div class="badge">2025</div><div><h3>Aprendizaje por Refuerzo para Agentes de Búsqueda de Rutas</h3><div class="project-context">IA Avanzada</div><p>Análisis comparativo de A* vs Q-learning para navegación de agentes en entornos dinámicos, implementado en Unity/C#.</p><div class="tags"><span class="tag">Q-Learning</span><span class="tag">A*</span><span class="tag">Unity</span><span class="tag">C#</span></div></div></article>
+    <article class="project"><div class="badge">2025</div><div><h3>Detección de Fraude en Tarjetas de Crédito</h3><div class="project-context">Ciencia de Datos</div><p>Aplicación de modelos de clasificación a transacciones reales altamente desbalanceadas, usando SMOTE y métricas de evaluación robustas.</p><div class="tags"><span class="tag">Random Forest</span><span class="tag">SMOTE</span><span class="tag">ROC-AUC</span><span class="tag">Scikit-learn</span></div></div></article>
+    <article class="project"><div class="badge">2025</div><div><h3>Asistentes de Voz con IA para Coches: Mercedes-Benz MBUX</h3><div class="project-context">IA Aplicada</div><p>Análisis técnico de arquitectura híbrida edge-cloud para asistentes de voz, con propuesta de mejoras mediante NLP y aprendizaje federado.</p><div class="tags"><span class="tag">NLP</span><span class="tag">ASR</span><span class="tag">Transformers</span><span class="tag">Edge AI</span></div></div></article>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <span>Sabrina Valle · Londres, Reino Unido</span>
+    <span><a href="mailto:sabrinaomm@icloud.com">sabrinaomm@icloud.com</a></span>
+    <span>Disponible para oportunidades remotas</span>
+  </div>
+</footer>
+</body>
+</html>
